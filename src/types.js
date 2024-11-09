@@ -31,3 +31,9 @@ class Response {
     this.contextVariables = contextVariables;
   }
 }
+
+module.exports = {
+  Agent,
+  Result,
+  Response,
+};

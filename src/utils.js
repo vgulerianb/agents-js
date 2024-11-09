@@ -83,3 +83,9 @@ const functionToJson = (func) => {
     },
   };
 };
+
+module.exports = {
+  debugPrint,
+  mergeChunk,
+  functionToJson,
+};
