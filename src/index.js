@@ -303,4 +303,4 @@ class AgentController {
   }
 }
 
-export { Agent, Result, Response, AgentController };
+module.exports = { Agent, Result, Response, AgentController };

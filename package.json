@@ -1,6 +1,6 @@
 {
   "name": "agents-js",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "A versatile JavaScript library for designing and managing intelligent agents capable of interacting with AI-driven chat models, leveraging OpenAI's GPT for dynamic conversations and task automation.",
   "main": "src/index.js",
   "repository": {
