@@ -74,8 +74,13 @@ function add({ a, b }) {
   return new Result({ value: `${a + b}` });
 }
 
-// Initialize AgentController
-const agentController = new AgentController();
+// Initialize OpenAI client
+const client = new OpenAI({
+  apiKey: "sk-thekey", // Replace 'sk-thekey' with your actual API key
+});
+
+// Use the initialized client to create a AgentController instance
+const agentController = new AgentController(client);
 
 // Create an agent with the function
 const agent = new Agent({
@@ -107,8 +112,13 @@ function greet({ name }) {
   return new Result({ value: `Hello, ${name}!` });
 }
 
-// Initialize AgentController
-const agentController = new AgentController();
+// Initialize OpenAI client
+const client = new OpenAI({
+  apiKey: "sk-thekey", // Replace 'sk-thekey' with your actual API key
+});
+
+// Use the initialized client to create a AgentController instance
+const agentController = new AgentController(client);
 
 // Create an agent with the function
 const agent = new Agent({
