@@ -29,15 +29,21 @@ const myAgent = new Agent({
 console.log(myAgent);
 ```
 
-### Example 2: Using AgentController to Get a Chat Completion
+### Example 2: Initializing OpenAI Client and Using AgentController
 
-The `AgentController` class is used to interact with a chat model using the defined agents.
+Before using the `AgentController` class to interact with chat models, you need to initialize the OpenAI client with your API key.
 
 ```javascript
+const OpenAI = require("openai");
 const { AgentController, Agent } = require("agents-js");
 
-// Initialize AgentController
-const agentController = new AgentController();
+// Initialize OpenAI client
+const client = new OpenAI({
+  apiKey: "sk-thekey", // Replace 'sk-thekey' with your actual API key
+});
+
+// Use the initialized client to create a AgentController instance
+const agentController = new AgentController(client);
 
 // Create an agent
 const agent = new Agent({
@@ -125,4 +131,8 @@ const contextVariables = { name: "John" };
 
 ## Conclusion
 
-`agents-js` provides a flexible framework for building conversational that can leverage external functions and maintain context across interactions. By defining agents and their capabilities, you can create powerful and dynamic chat applications.
+`agents-js` provides a flexible framework for building conversational applications that can leverage external functions and maintain context across interactions. By defining agents and their capabilities, you can create powerful and dynamic chat applications.
+
+---
+
+Make sure to replace `"sk-thekey"` with your actual API key when using the OpenAI client in your application.
