@@ -82,6 +82,11 @@ const { AgentController, Agent, Result } = require("agents-js");
 
 // Define a simple function that the agent can use
 function add({ a, b }) {
+  /**
+   * @param {number} a - First number
+   * @param {number} b - Second number
+   * @description Adds two numbers
+   */
   return new Result({ value: `${a + b}` });
 }
 
@@ -120,6 +125,10 @@ const { AgentController, Agent, Result } = require("agents-js");
 
 // Define a function using context variables
 function greet({ name }) {
+  /**
+   * @param {string} name - Name of the person to greet
+   * @description Greets a person by name
+   */
   return new Result({ value: `Hello, ${name}!` });
 }
 
