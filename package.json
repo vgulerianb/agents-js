@@ -1,6 +1,6 @@
 {
   "name": "agents-js",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "A versatile JavaScript library for designing and managing intelligent agents capable of interacting with AI-driven chat models, leveraging OpenAI's GPT for dynamic conversations and task automation.",
   "main": "src/index.js",
   "repository": {
@@ -12,7 +12,10 @@
   },
   "keywords": [
     "agents",
-    "AI"
+    "AI",
+    "swarm",
+    "openai",
+    "multi-agents"
   ],
   "author": "Vikrant Guleria",
   "license": "MIT",

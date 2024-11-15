@@ -62,6 +62,17 @@ const messages = [{ role: "user", content: "Hello, can you help me?" }];
 })();
 ```
 
+> If you want to use TuneStudio you can pass base url to the client like this:
+>
+> ```javascript
+> const client = new OpenAI({
+>   apiKey: "sk-tune-key",
+>   baseURL: "https://proxy.tune.app",
+> });
+> ```
+
+````
+
 ### Example 3: Handling Tool Calls
 
 You can define functions that the agent can call during its operation.
@@ -98,7 +109,7 @@ const messages = [{ role: "user", content: "What is 2 + 3?" }];
   const response = await agentController.run(agent, messages);
   console.log(response);
 })();
-```
+````
 
 ### Example 4: Using Context Variables
 

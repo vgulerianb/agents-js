@@ -35,50 +35,29 @@ const mergeChunk = (finalResponse, delta) => {
 };
 
 const functionToJson = (func) => {
-  const typeMap = {
-    string: "string",
-    number: "number",
-    boolean: "boolean",
-    object: "object",
-    array: "array",
-    null: "null",
-  };
-
-  // Get function parameters using reflection
-  const params = {};
-  const required = [];
-
   // Parse JSDoc comments to get parameter types
   const funcString = func.toString();
   const docString = funcString.match(/\/\*\*\s*([\s\S]*?)\s*\*\//)?.[1] || "";
   const paramMatches = docString.match(/@param\s+{(\w+)}\s+(\w+)/g) || [];
+  const description = docString.match(/@description\s+([\s\S]*)/)?.[1] || "";
 
   // Extract parameter names from function definition
-  const paramNames = funcString
-    .match(/\(([^)]*)\)/)[1]
-    .split(",")
-    .map((param) => param.trim())
-    .filter(Boolean);
+  const paramsMap = {};
 
-  paramNames.forEach((paramName, index) => {
-    const paramMatch = paramMatches[index];
-    const type = paramMatch
-      ? paramMatch.match(/@param\s+{(\w+)}/)[1]
-      : "string";
-
-    params[paramName] = { type: typeMap[type] || "string" };
-    required.push(paramName);
+  paramMatches.forEach((paramMatch) => {
+    const [_, type, name] = paramMatch.match(/@param\s+{(\w+)}\s+(\w+)/);
+    paramsMap[name] = { type: type };
   });
 
   return {
     type: "function",
     function: {
       name: func.name,
-      description: docString.split("@param")[0].trim(),
+      description: description,
       parameters: {
         type: "object",
-        properties: params,
-        required,
+        properties: paramsMap,
+        required: Object.keys(paramsMap),
       },
     },
   };
